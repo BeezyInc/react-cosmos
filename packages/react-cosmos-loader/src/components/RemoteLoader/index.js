@@ -61,7 +61,10 @@ const getFixtureState = ({
   };
 };
 
-const postMessageToParent = data => parent.postMessage(JSON.stringify(data), '*');
+const postMessageToParent = data => {
+  data.fixtureBody = JSON.stringify(data.fixtureBody);
+  return parent.postMessage(data, '*');
+};
 
 class RemoteLoader extends Component {
   /**
