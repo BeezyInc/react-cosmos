@@ -126,11 +126,19 @@ export default function createStateProxy(options) {
     onStateUpdate = () => {
       this.updateState(getState(this.componentRef));
     };
+    // NOTE: DAGU change IE issue
+    _normalizeState = state => JSON.parse(JSON.stringify(state));
 
     updateState(updatedState) {
       const { fixture, onFixtureUpdate } = this.props;
-
-      if (!isEqual(updatedState, fixture.state)) {
+      // NOTE: IR is always not equal because lodash.omit (line 9) is changing the original object
+      // adding Symbols as properties.
+      if (
+        !isEqual(
+          this._normalizeState(updatedState),
+          this._normalizeState(fixture.state)
+        )
+      ) {
         onFixtureUpdate({
           state: updatedState
         });

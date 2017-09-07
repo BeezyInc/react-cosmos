@@ -1,5 +1,5 @@
 {
-  "name": "@beezyinc/react-cosmos-loader-bz",
+  "name": "@beezyinc/react-cosmos-loader",
   "version": "2.0.0-beta.26",
   "description": "Loader for rendering React components in isolation",
   "repository": "https://github.com/react-cosmos/react-cosmos/tree/master/packages/react-cosmos-loader",
