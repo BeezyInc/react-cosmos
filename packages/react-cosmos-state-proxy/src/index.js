@@ -127,7 +127,7 @@ export default function createStateProxy(options) {
       this.updateState(getState(this.componentRef));
     };
     // NOTE: DAGU change IE issue
-    _normalizeState = state => JSON.parse(JSON.stringify(state));
+    _normalizeState = state => JSON.parse(JSON.stringify(state || {}));
 
     updateState(updatedState) {
       const { fixture, onFixtureUpdate } = this.props;

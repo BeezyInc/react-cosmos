@@ -62,6 +62,7 @@ const getFixtureState = ({
 };
 
 const postMessageToParent = data => {
+  // NOTE: modified DAGU non serializable warnings with editor state.
   data.fixtureBody = JSON.stringify(data.fixtureBody);
   return parent.postMessage(data, '*');
 };
